@@ -1,0 +1,346 @@
+/*
+THEME NAME: Rhcbc
+THEME URI:
+DESCRIPTION: A Child-Theme based on Thematic
+TEMPLATE: Thematic
+VERSION: 0.1
+AUTHOR: Vincent Chan
+AUTHOR URI: http://vincentchan.me
+TAGS: three columns,fixed width,simple,seo,microformats,widgets,framework,options page,hooks,filters,valid XHTML,valid CSS, blue, sifr
+.
+This work, like WordPress, is released under GNU General Public License, version 2 (GPL).
+http://www.gnu.org/licenses/old-licenses/gpl-2.0.html
+.
+*/
+@import url("../thematic/library/styles/reset.css");
+@import url("../thematic/library/styles/typography.css");
+@import url("../thematic/library/layouts/2c-r-fixed.css");
+@import url("../thematic/library/styles/images.css");
+@import url("../thematic/library/styles/default.css");
+@import url("../thematic/library/styles/plugins.css");
+/*     v a r i a b l e s     */
+/*     m i x i n s    */
+/*     g r i d     */
+/*     t y p o g r a p h y     */
+/* line 83, sass/style.scss */
+body, input, textarea {
+  font: 16px Lato, sans-serif;
+  background-color: #fdfdfd;
+  background-image: url('data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4gPHN2ZyB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGRlZnM+PGxpbmVhckdyYWRpZW50IGlkPSJncmFkIiBncmFkaWVudFVuaXRzPSJvYmplY3RCb3VuZGluZ0JveCIgeDE9IjAuNSIgeTE9IjEuMCIgeDI9IjAuNSIgeTI9IjAuMCI+PHN0b3Agb2Zmc2V0PSI1JSIgc3RvcC1jb2xvcj0iI2NjY2NjYyIvPjxzdG9wIG9mZnNldD0iNSUiIHN0b3AtY29sb3I9IiNjY2NjY2MiIHN0b3Atb3BhY2l0eT0iMC4wIi8+PC9saW5lYXJHcmFkaWVudD48L2RlZnM+PHJlY3QgeD0iMCIgeT0iMCIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgZmlsbD0idXJsKCNncmFkKSIgLz48L3N2Zz4g');
+  background-size: 100%;
+  background-image: -webkit-gradient(linear, 50% 100%, 50% 0%, color-stop(5%, #cccccc), color-stop(5%, rgba(204, 204, 204, 0)));
+  background-image: -moz-linear-gradient(bottom, #cccccc 5%, rgba(204, 204, 204, 0) 5%);
+  background-image: -webkit-linear-gradient(bottom, #cccccc 5%, rgba(204, 204, 204, 0) 5%);
+  background-image: linear-gradient(to top, #cccccc 5%, rgba(204, 204, 204, 0) 5%);
+  -moz-background-size: 100% 18px;
+  -o-background-size: 100% 18px;
+  -webkit-background-size: 100% 18px;
+  background-size: 100% 18px;
+  background-position: left top;
+}
+/* line 106, ../../../../../../../Library/Ruby/Gems/2.0.0/gems/compass-core-1.0.3/stylesheets/compass/typography/_vertical_rhythm.scss */
+body html, input html, textarea html {
+  font-size: 112.5%;
+  line-height: 1.2em;
+}
+
+/* line 90, sass/style.scss */
+h1, h2, h3 {
+  font-size: 15px;
+  font-size: 1rem;
+  line-height: 36px;
+  line-height: 2.4rem;
+}
+
+/* line 94, sass/style.scss */
+h4, h5 {
+  font-size: 12px;
+  font-size: 0.8rem;
+  line-height: 18px;
+  line-height: 1.2rem;
+}
+
+/* line 98, sass/style.scss */
+div, p {
+  font-size: 12px;
+  font-size: 0.8rem;
+  line-height: 18px;
+  line-height: 1.2rem;
+}
+
+/* line 102, sass/style.scss */
+span {
+  font-style: uppercase;
+  font-size: 9px;
+  font-size: 0.6rem;
+  line-height: 18px;
+  line-height: 1.2rem;
+}
+
+/*     l a y o u t     */
+/* line 108, sass/style.scss */
+.pull-right {
+  float: right;
+}
+
+/* line 112, sass/style.scss */
+#main {
+  margin-top: 32px;
+}
+
+/* line 116, sass/style.scss */
+#main,
+#content .aside,
+#content .aside ul {
+  padding: 0;
+  border: none;
+}
+
+/* line 123, sass/style.scss */
+#branding {
+  display: none;
+}
+
+/* line 127, sass/style.scss */
+#wpadminbar {
+  display: none !important;
+}
+
+/*     h o m e   p a g e   l a y o u t     */
+/* line 131, sass/style.scss */
+#container,
+#content {
+  width: 100%;
+}
+
+/*     i c o n s     */
+/* line 137, sass/style.scss */
+.logo {
+  display: block;
+  background-image: url("img/logo_rhcbc.png");
+  background-position: center;
+  background-size: contain;
+  background-repeat: no-repeat;
+  height: 40px;
+  width: 40px;
+  margin: 12px;
+  float: left;
+  -moz-transition: all 0.3s linear;
+  -o-transition: all 0.3s linear;
+  -webkit-transition: all 0.3s linear;
+  transition: all 0.3s linear;
+}
+
+/*     m e n u s     */
+/* line 153, sass/style.scss */
+#header {
+  height: 64px;
+  width: 100%;
+  position: fixed;
+  top: 0;
+  border: none;
+  background: white;
+  box-shadow: 0px 1px 18px #ddd;
+  z-index: 2000;
+  -moz-transition: all 0.3s linear;
+  -o-transition: all 0.3s linear;
+  -webkit-transition: all 0.3s linear;
+  transition: all 0.3s linear;
+}
+
+/* line 165, sass/style.scss */
+#header.skinny {
+  height: 32px;
+  -moz-transition: all 0.3s linear;
+  -o-transition: all 0.3s linear;
+  -webkit-transition: all 0.3s linear;
+  transition: all 0.3s linear;
+}
+
+/* line 171, sass/style.scss */
+.skinny .menu a {
+  font-size: 9px;
+  font-size: 0.6rem;
+  line-height: 18px;
+  line-height: 1.2rem;
+  line-height: 32px;
+  height: 32px;
+  -moz-transition: all 0.3s linear;
+  -o-transition: all 0.3s linear;
+  -webkit-transition: all 0.3s linear;
+  transition: all 0.3s linear;
+}
+/* line 178, sass/style.scss */
+.skinny a.site-title {
+  font-size: 12px;
+  font-size: 0.8rem;
+  line-height: 18px;
+  line-height: 1.2rem;
+  line-height: 32px;
+  -moz-transition: all 0.3s linear;
+  -o-transition: all 0.3s linear;
+  -webkit-transition: all 0.3s linear;
+  transition: all 0.3s linear;
+}
+/* line 184, sass/style.scss */
+.skinny .logo {
+  height: 20px;
+  width: 20px;
+  margin: 6px;
+  float: left;
+  -moz-transition: all 0.3s linear;
+  -o-transition: all 0.3s linear;
+  -webkit-transition: all 0.3s linear;
+  transition: all 0.3s linear;
+}
+/* line 192, sass/style.scss */
+.skinny .lang-item {
+  line-height: 32px;
+}
+/* line 196, sass/style.scss */
+.skinny .lang-item a {
+  margin-top: 8px;
+  height: 20px;
+}
+
+/* line 202, sass/style.scss */
+.header-menu {
+  width: 960px;
+  margin: 0 auto;
+}
+
+/* line 206, sass/style.scss */
+a.site-title {
+  font-size: 15px;
+  font-size: 1rem;
+  line-height: 36px;
+  line-height: 2.4rem;
+  font-weight: 400;
+  line-height: 64px;
+  text-decoration: none;
+  color: #9074a3;
+  -moz-transition: all 0.3s linear;
+  -o-transition: all 0.3s linear;
+  -webkit-transition: all 0.3s linear;
+  transition: all 0.3s linear;
+}
+
+/* line 215, sass/style.scss */
+.sf-menu a {
+  border: none;
+}
+
+/* line 218, sass/style.scss */
+.menu {
+  width: auto;
+  display: inline-block;
+}
+
+/* line 222, sass/style.scss */
+.top-menu {
+  margin: 0;
+}
+
+/* line 226, sass/style.scss */
+.top-menu li.menu-item {
+  display: inline-block;
+}
+
+/* line 230, sass/style.scss */
+.menu a {
+  display: inline-block;
+  height: 64px;
+  font-size: 12px;
+  font-size: 0.8rem;
+  line-height: 18px;
+  line-height: 1.2rem;
+  color: #333;
+  font-weight: 300;
+  text-transform: uppercase;
+  text-decoration: none;
+  line-height: 64px;
+  padding: 0 8px;
+  vertical-align: middle;
+  -webkit-transform: translateZ(0);
+  transform: translateZ(0);
+  box-shadow: 0 0 1px transparent;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  -moz-osx-font-smoothing: grayscale;
+  position: relative;
+  overflow: hidden;
+  -moz-transition: all 0.3s linear;
+  -o-transition: all 0.3s linear;
+  -webkit-transition: all 0.3s linear;
+  transition: all 0.3s linear;
+}
+
+/* line 252, sass/style.scss */
+.menu a:before {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  left: 50%;
+  right: 50%;
+  bottom: 0;
+  background: #9682c8;
+  height: 4px;
+  -webkit-transition-property: left, right;
+  transition-property: left, right;
+  -webkit-transition-duration: 0.3s;
+  transition-duration: 0.3s;
+  -webkit-transition-timing-function: ease-out;
+  transition-timing-function: ease-out;
+}
+
+/* line 268, sass/style.scss */
+.menu a:hover:before, .menu a:focus:before, .menu a:active:before {
+  left: 0;
+  right: 0;
+}
+
+/* line 273, sass/style.scss */
+.menu a:hover {
+  cursor: pointer;
+  text-decoration: none;
+  color: #9682c8;
+}
+
+/* line 279, sass/style.scss */
+#site-title-block {
+  height: 64px;
+  float: left;
+}
+
+/* line 285, sass/style.scss */
+.lang-list {
+  display: inline-block;
+  height: 64px;
+  margin: 0px;
+  float: right;
+}
+
+/* line 292, sass/style.scss */
+.lang-item {
+  font-size: 12px;
+  font-size: 0.8rem;
+  line-height: 18px;
+  line-height: 1.2rem;
+  line-height: 64px;
+}
+
+/* line 297, sass/style.scss */
+.lang-item a {
+  padding: 0px;
+  margin-top: 24px;
+  height: 40px;
+}
+
+@media only screen and (-Webkit-min-device-pixel-ratio: 1.5), only screen and (-moz-min-device-pixel-ratio: 1.5), only screen and (-o-min-device-pixel-ratio: 3 / 2), only screen and (min-device-pixel-ratio: 1.5) {
+  /* line 304, sass/style.scss */
+  .logo {
+    background-image: url("img/logo_rhcbc_2x.png");
+    background-repeat: no-repeat;
+  }
+}
+/*# sourceMappingURL=style.css.map */

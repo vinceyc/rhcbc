@@ -1,0 +1,308 @@
+/*
+THEME NAME: Rhcbc
+THEME URI:
+DESCRIPTION: A Child-Theme based on Thematic
+TEMPLATE: Thematic
+VERSION: 0.1
+AUTHOR: Vincent Chan
+AUTHOR URI: http://vincentchan.me
+TAGS: three columns,fixed width,simple,seo,microformats,widgets,framework,options page,hooks,filters,valid XHTML,valid CSS, blue, sifr
+.
+This work, like WordPress, is released under GNU General Public License, version 2 (GPL).
+http://www.gnu.org/licenses/old-licenses/gpl-2.0.html
+.
+*/
+
+@import url("../thematic/library/styles/reset.css");
+@import url("../thematic/library/styles/typography.css");
+@import url("../thematic/library/layouts/2c-r-fixed.css");
+@import url("../thematic/library/styles/images.css");
+@import url("../thematic/library/styles/default.css");
+@import url("../thematic/library/styles/plugins.css");
+@import "compass/typography/vertical_rhythm";
+@import "compass/layout/grid-background";
+@import "compass/css3/transition";
+
+/*     v a r i a b l e s     */
+$light: 100;
+$regular: 300;
+$bold: 400;
+$super: 700;
+
+$purple: rgb(144,116,163);
+$blue: rgb(150,130,200);
+
+$tiny: 8px;
+$small: 16px;
+$medium: 32px;
+$huge: 64px;
+
+$z0: 0;
+$z1: 1000;
+$z2: 2000;
+
+/*     m i x i n s    */
+@mixin wrapper($width) {
+    width: $width;
+    margin: 0 auto;
+}
+
+@mixin shrinkHeader() {
+  @include single-transition(all, .3s, linear);
+}
+
+/*     g r i d     */
+$grid-background-column-color: rgba(100, 100, 225, 0.25);
+$grid-background-gutter-color: rgba(0, 0, 0, 0);
+$grid-background-total-columns: 24;
+$grid-background-column-width: 30px;
+$grid-background-gutter-width: 10px;
+$grid-background-offset: 0px;
+$grid-background-baseline-color: rgba(0, 0, 0, 0.5);
+$grid-background-baseline-height: 1.5em;
+$show-column-grid-backgrounds: true;
+$show-baseline-grid-backgrounds: true;
+$show-grid-backgrounds: true;
+$grid-background-force-fluid: false;
+
+/*     t y p o g r a p h y     */
+$base-font-size: 15px;
+$base-line-height: 18px;
+$rhythm-unit: "rem";
+$rem-with-px-fallback: true;
+$default-rhythm-border-width: 1px;
+$default-rhythm-border-style: solid;
+$min-line-padding: 2px;
+
+$h1-fs: 21px;
+$h2-fs: 18px;
+$h3-fs: 15px;
+$h4-fs: 12px;
+$h5-fs: 9px;
+
+body, input, textarea {
+  font: 16px Lato, sans-serif;
+  background-color: #fdfdfd;
+  @include establish-baseline(18px);
+  @include baseline-grid-background(18px, #ccc)
+}
+
+h1, h2, h3 {
+  @include adjust-font-size-to($h3-fs);
+}
+
+h4, h5 {
+  @include adjust-font-size-to($h4-fs);
+}
+
+div, p {
+  @include adjust-font-size-to($h4-fs);
+}
+
+span {
+  font-style:uppercase;
+  @include adjust-font-size-to($h5-fs);
+}
+
+/*     l a y o u t     */
+.pull-right {
+    float: right;
+}
+
+#main {
+    margin-top: 32px;
+}
+
+#main,
+#content .aside,
+#content .aside ul  {
+    padding: 0;
+    border: none;
+}
+
+#branding {
+    display: none;
+}
+
+#wpadminbar {
+    display:none !important;
+}
+/*     h o m e   p a g e   l a y o u t     */
+#container,
+#content {
+  width: 100%;
+}
+
+/*     i c o n s     */
+.logo {
+  display: block;
+  background-image: url("img/logo_rhcbc.png");
+  background-position: center;
+  background-size: contain;
+  background-repeat: no-repeat;
+  height: 40px;
+  width: 40px;
+  margin: 12px;
+  float: left;
+  @include shrinkHeader();
+}
+
+/*     m e n u s     */
+
+// Top Menu
+#header {
+  height: 64px;
+  width: 100%;
+  position: fixed;
+  top: 0;
+  border: none;
+  background: rgba(255,255,255,1);
+  box-shadow: 0px 1px 18px #ddd;
+  z-index: $z2;
+  @include shrinkHeader();
+}
+
+#header.skinny {
+  height: 32px;
+  @include shrinkHeader();
+}
+
+.skinny {
+  .menu a {
+    @include adjust-font-size-to($h5-fs);
+    line-height: 32px;
+    height: 32px;
+    @include shrinkHeader();
+  }
+
+  a.site-title {
+    @include adjust-font-size-to($h4-fs);
+    line-height: 32px;
+    @include shrinkHeader();
+  }
+
+  .logo {
+    height: 20px;
+    width: 20px;
+    margin: 6px;
+    float: left;
+    @include shrinkHeader();
+  }
+
+  .lang-item {
+    line-height: 32px;
+  }
+
+  .lang-item a {
+    margin-top: 8px;
+    height: 20px;
+  }
+}
+
+.header-menu {
+    @include wrapper(960px);
+}
+
+a.site-title {
+  @include adjust-font-size-to($h3-fs);
+  font-weight: $bold;
+  line-height: 64px;
+  text-decoration: none;
+  color: $purple;
+  @include shrinkHeader();
+}
+
+.sf-menu a {
+  border: none; }
+
+.menu {
+  width: auto;
+  display: inline-block; }
+
+.top-menu {
+    margin: 0;
+}
+
+.top-menu li.menu-item {
+    display: inline-block;
+}
+
+.menu a {
+  display: inline-block;
+  height: 64px;
+  @include adjust-font-size-to($h4-fs);
+  color: #333;
+  font-weight: $regular;
+  text-transform: uppercase;
+  text-decoration: none;
+  line-height: 64px;
+  padding: 0 8px;
+
+  vertical-align: middle;
+  -webkit-transform: translateZ(0);
+  transform: translateZ(0);
+  box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  -moz-osx-font-smoothing: grayscale;
+  position: relative;
+  overflow: hidden;
+  @include shrinkHeader();
+}
+.menu a:before {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  left: 50%;
+  right: 50%;
+  bottom: 0;
+  background: $blue;
+  height: 4px;
+  -webkit-transition-property: left, right;
+  transition-property: left, right;
+  -webkit-transition-duration: 0.3s;
+  transition-duration: 0.3s;
+  -webkit-transition-timing-function: ease-out;
+  transition-timing-function: ease-out;
+}
+.menu a:hover:before, .menu a:focus:before, .menu a:active:before {
+  left: 0;
+  right: 0;
+}
+
+.menu a:hover {
+    cursor: pointer;
+    text-decoration: none;
+    color: $blue;
+}
+
+#site-title-block {
+  height: 64px;
+  float: left;
+}
+
+// Language Switcher
+.lang-list {
+  display: inline-block;
+  height: 64px;
+  margin: 0px;
+  float: right;
+}
+
+.lang-item {
+  @include adjust-font-size-to($h4-fs);
+  line-height: 64px;
+}
+
+.lang-item a {
+  padding: 0px;
+  margin-top: 24px;
+  height: 40px;
+}
+
+@media only screen and (-Webkit-min-device-pixel-ratio: 1.5), only screen and (-moz-min-device-pixel-ratio: 1.5), only screen and (-o-min-device-pixel-ratio: 3 / 2), only screen and (min-device-pixel-ratio: 1.5) {
+  .logo {
+    background-image: url("img/logo_rhcbc_2x.png");
+    background-repeat: no-repeat; } }
+
+/*# sourceMappingURL=style.css.map */

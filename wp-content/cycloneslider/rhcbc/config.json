@@ -1,0 +1,10 @@
+{
+    "slide_types": [
+        "image",
+        "youtube",
+        "video",
+        "vimeo",
+        "custom",
+        "testimonial"
+    ]
+}

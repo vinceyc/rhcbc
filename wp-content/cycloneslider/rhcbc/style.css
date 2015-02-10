@@ -1,0 +1,254 @@
+/*** Template Giantspoon ***/
+.cycloneslider-template-giantspoon{
+	position:relative;
+    margin: 0px auto;
+	outline: none;
+}
+.cycloneslider-template-giantspoon .cycloneslider-slides{
+	position:relative;
+	overflow:hidden;
+}
+.cycloneslider-template-giantspoon .cycloneslider-slide{
+	text-align: center;
+	width: 100%; /* For slides in scrollHorz to work */
+	display: none; /* Hide slides to prevent FOUC when JS hasn't kicked in yet */
+	background: #fff; /* Add background to prevent slides from peeking behind the current slide when fx=scrollHorz and hideNonActive=false */
+
+}
+.cycloneslider-template-giantspoon .cycle-slide{
+	display: block; /* Show slide so that getBoundingClientRect().height will not return 0. Class .cycle-slide is added when cycle has initialized. */
+}
+.cycloneslider-template-giantspoon div[data-cycle-hide-non-active="false"] .cycloneslider-slide{
+	opacity: 0; /* Avoid youtube and vimeo or other slides from peeking behind the current slide whe in transit */
+}
+.cycloneslider-template-giantspoon div[data-cycle-dynamic-height="off"] .cycloneslider-slide-image{
+	height: 100%; /* To prevent cutting off captions when dynamic height is off */
+}
+.cycloneslider-template-giantspoon .cycloneslider-slide:first-child, /* Show first slide */
+.cycloneslider-template-giantspoon .cycle-sentinel + .cycloneslider-slide{ /* Select next slide when using sentinel slide */
+	display: block;
+}
+.cycloneslider-template-giantspoon .cycloneslider-slide img{
+	display:block;
+	margin:0 auto;
+	padding:0;
+	max-width:100%;
+	border:0;
+}
+.cycloneslider-template-giantspoon.cycloneslider-width-full .cycloneslider-slide img{
+	width:100%;
+}
+.cycloneslider-template-giantspoon .cycloneslider-slide iframe, /* Make our videos fluid */
+.cycloneslider-template-giantspoon .cycloneslider-slide object,
+.cycloneslider-template-giantspoon .cycloneslider-slide embed {
+	position: absolute;
+	left: 0;
+	top: 0;
+    width: 100% !important; /* Override width attrib */
+    height: 100% !important; /* Override height attrib */
+}
+.cycloneslider-template-giantspoon .cycloneslider-slide-youtube,
+.cycloneslider-template-giantspoon .cycloneslider-slide-vimeo{
+	background: #000;
+}
+.cycloneslider-template-giantspoon .cycloneslider-slide-custom,
+.cycloneslider-template-giantspoon .cycloneslider-slide-testimonial{
+	min-height: 100%;
+}
+.cycloneslider-template-giantspoon div[data-cycle-dynamic-height="on"] .cycloneslider-slide-custom,
+.cycloneslider-template-giantspoon div[data-cycle-dynamic-height="on"] .cycle-sentinel + .cycloneslider-slide-testimonial{
+	min-height: 100px; /* Disable 100% min height when dynamic height is on. To fix issue with scrollHorz */
+}
+.cycloneslider-template-giantspoon .cycloneslider-slide-testimonial{
+	font-style: italic;
+}
+.cycloneslider-template-giantspoon .cycloneslider-slide-testimonial blockquote{
+	margin-bottom: 0;
+}
+.cycloneslider-template-giantspoon .cycloneslider-slide-testimonial p{
+	margin: 0;
+}
+.cycloneslider-template-giantspoon .cycloneslider-slide-testimonial .cycloneslider-testimonial-author{
+	text-align: right;
+	font-style: normal;
+}
+.rtl .cycloneslider-template-giantspoon .cycloneslider-slide-testimonial .cycloneslider-testimonial-author{
+	text-align: left;
+}
+.cycloneslider-template-giantspoon .cycloneslider-slide-testimonial .cycloneslider-testimonial-author a{
+	text-decoration: none;
+}
+
+/*** Prev/Next ***/
+.cycloneslider-template-giantspoon .cycloneslider-prev,
+.cycloneslider-template-giantspoon .cycloneslider-next,
+.cycloneslider-template-giantspoon .cycloneslider-pager span {
+	cursor:pointer;
+}
+.cycloneslider-template-giantspoon .cycloneslider-prev,
+.cycloneslider-template-giantspoon .cycloneslider-next{
+
+    background: none;
+	opacity: 0;
+    position:absolute;
+    top:50%;
+    z-index:190;
+    display: block;
+    margin-top:-15px;
+    width:30px;
+    height:67px;
+	-webkit-transition: all 0.5s ;
+	-moz-transition: all 0.5s ;
+	-ms-transition: all 0.5s ;
+	-o-transition: all 0.5s ;
+	transition: all 0.5s ;
+}
+
+.cycloneslider-template-giantspoon .slider-area-prev,
+.cycloneslider-template-giantspoon .slider-area-next{
+    position:absolute;
+    top:0%;
+    z-index:180;
+    display: block;
+    margin-top:0px;
+    width:135px;
+    height:100%;
+    border-radius: 0px;
+    background: none;
+    pointer-events: none;
+    opacity: 0.3;
+    -webkit-transition: all 0.5s ;
+    -moz-transition: all 0.5s ;
+    -ms-transition: all 0.5s ;
+    -o-transition: all 0.5s ;
+    transition: all 0.5s ;
+}
+
+.cycloneslider-template-giantspoon .slider-area-next{
+    right: 0;
+}
+
+.cycloneslider-template-giantspoon .slider-area-prev {
+    background: -moz-linear-gradient(left, rgba(0,0,0,0.27) 0%, rgba(0,0,0,0) 77%, rgba(0,0,0,0) 100%); /* FF3.6+ */
+     background: -moz-linear-gradient(left, rgba(0,0,0,0.27) 0%, rgba(0,0,0,0) 77%, rgba(0,0,0,0) 100%); /* FF3.6+ */
+    background: -webkit-gradient(linear, left top, right top, color-stop(0%,rgba(0,0,0,0.27)), color-stop(77%,rgba(0,0,0,0)), color-stop(100%,rgba(0,0,0,0))); /* Chrome,Safari4+ */
+    background: -webkit-linear-gradient(left, rgba(0,0,0,0.27) 0%,rgba(0,0,0,0) 77%,rgba(0,0,0,0) 100%); /* Chrome10+,Safari5.1+ */
+    background: -o-linear-gradient(left, rgba(0,0,0,0.27) 0%,rgba(0,0,0,0) 77%,rgba(0,0,0,0) 100%); /* Opera 11.10+ */
+    background: -ms-linear-gradient(left, rgba(0,0,0,0.27) 0%,rgba(0,0,0,0) 77%,rgba(0,0,0,0) 100%); /* IE10+ */
+    background: linear-gradient(to right, rgba(0,0,0,0.27) 0%,rgba(0,0,0,0) 77%,rgba(0,0,0,0) 100%); /* W3C */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#45000000', endColorstr='#00000000',GradientType=1 ); /* IE6-9 */
+}
+.cycloneslider-template-giantspoon .slider-area-next {
+    background: -moz-linear-gradient(left,  rgba(0,0,0,0) 0%, rgba(0,0,0,0) 23%, rgba(0,0,0,0.27) 100%); /* FF3.6+ */
+    background: -webkit-gradient(linear, left top, right top, color-stop(0%,rgba(0,0,0,0)), color-stop(23%,rgba(0,0,0,0)), color-stop(100%,rgba(0,0,0,0.27))); /* Chrome,Safari4+ */
+    background: -webkit-linear-gradient(left,  rgba(0,0,0,0) 0%,rgba(0,0,0,0) 23%,rgba(0,0,0,0.27) 100%); /* Chrome10+,Safari5.1+ */
+    background: -o-linear-gradient(left,  rgba(0,0,0,0) 0%,rgba(0,0,0,0) 23%,rgba(0,0,0,0.27) 100%); /* Opera 11.10+ */
+    background: -ms-linear-gradient(left,  rgba(0,0,0,0) 0%,rgba(0,0,0,0) 23%,rgba(0,0,0,0.27) 100%); /* IE10+ */
+    background: linear-gradient(to right,  rgba(0,0,0,0) 0%,rgba(0,0,0,0) 23%,rgba(0,0,0,0.27) 100%); /* W3C */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00000000', endColorstr='#45000000',GradientType=1 ); /* IE6-9 */
+
+}
+
+.cycloneslider-template-giantspoon:hover .cycloneslider-prev,
+.cycloneslider-template-giantspoon:hover .cycloneslider-next{
+	opacity: 0.4;
+}
+.cycloneslider-template-giantspoon .cycloneslider-prev:hover,
+.cycloneslider-template-giantspoon .cycloneslider-next:hover{
+	opacity: 1;
+}
+.cycloneslider-template-giantspoon .cycloneslider-prev.disabled,
+.cycloneslider-template-giantspoon .cycloneslider-next.disabled{
+	display: none;
+}
+.cycloneslider-template-giantspoon .arrow{
+    position: absolute;
+    background-repeat: no-repeat;
+    margin-top: -15px;
+    width: 30px;
+    height: 67px;
+}
+.cycloneslider-template-giantspoon .cycloneslider-prev{
+    left:0px;
+}
+.rtl .cycloneslider-template-giantspoon .cycloneslider-prev{
+    left:auto;
+    right:10px;
+}
+.cycloneslider-template-giantspoon .cycloneslider-prev .arrow {
+    background-image: url('prev.png');
+    left: 30px;
+}
+.cycloneslider-template-giantspoon .cycloneslider-next .arrow {
+    background-image: url('next.png');
+    right: 30px;
+}
+.cycloneslider-template-giantspoon .cycloneslider-next{
+    right:0px;
+}
+.rtl .cycloneslider-template-giantspoon .cycloneslider-next{
+    right:auto;
+	left:10px;
+}
+
+/*** Pager ***/
+.cycloneslider-template-giantspoon .cycloneslider-pager{
+    position:absolute;
+    bottom:25px;
+    left:0;
+    z-index:200;
+    width: 100%;
+    height: 12px;
+    text-align: center;
+}
+.cycloneslider-template-giantspoon .cycloneslider-pager span {
+    display: inline-block;
+    margin: 0 5px;
+    width: 10px;
+    height: 10px;
+    border-radius: 5px;
+    background: none;
+    border: 1px solid #ddd;
+    vertical-align: top;
+    font-size: 0;
+    line-height: 0;
+}
+.ie7 .cycloneslider-template-giantspoon .cycloneslider-pager span{
+	zoom: 1;/* IE 7 inline-block */
+	*display: inline;/* IE 7 inline-block */
+}
+.cycloneslider-template-giantspoon .cycloneslider-pager span.cycle-pager-active {
+    background-color: #e96828;
+    border: 1px solid #e96828;
+}
+
+/*** Caption ***/
+.cycloneslider-template-giantspoon .cycloneslider-caption{
+    position:absolute;
+    bottom:0;
+    left:0;
+    z-index:500;
+    width:100%;
+    background: #222;
+    color:#fff;
+    opacity: 0.7;
+	text-align: left;
+}
+.rtl .cycloneslider-template-giantspoon .cycloneslider-caption{
+	text-align: right;
+}
+.cycloneslider-template-giantspoon .cycloneslider-caption-title{
+    margin-bottom:0;
+    padding:10px 20px 5px 20px;
+    font-size:22px;
+    line-height:1;
+}
+.cycloneslider-template-giantspoon .cycloneslider-caption-description{
+    padding:0 20px 15px 20px;
+    font-size:12px;
+    line-height:1.5;
+}
+
+.cs-dialogue-area {
+    width: 300px;
+}

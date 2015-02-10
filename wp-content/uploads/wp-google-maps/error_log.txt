@@ -1,0 +1,2 @@
+Error log created
+2015-01-21 15:23:20: Could not save XML file -> Could not save marker XML file (/Applications/AMPPS/www/rhcbc/wp-content/uploads/wp-google-maps/1markers.xml) for Map ID 1
